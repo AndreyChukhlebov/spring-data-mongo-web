@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+
+  mongo:
+    image: mongo:3.4
+    hostname: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: user1
+      MONGO_INITDB_ROOT_PASSWORD: pass1
+      MONGO_INITDB_DATABASE: admin
+    ports:
+      - "27017:27017"
+
+  db:
+    image: postgres
+    container_name: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: db
+    restart: unless-stopped
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
