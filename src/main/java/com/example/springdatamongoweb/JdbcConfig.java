@@ -20,11 +20,11 @@ import javax.sql.DataSource;
 @Configuration
 @EnableJdbcRepositories(
         basePackages = {
-                "com.example.springdatamongoweb"
+                "com.example.springdatamongoweb.repository"
         })
 @EnableMongoRepositories(
         basePackages = {
-                "com.example.springdatamongoweb"
+                "com.example.springdatamongoweb.mobgorepository"
         })
 public class JdbcConfig extends AbstractJdbcConfiguration {
 
