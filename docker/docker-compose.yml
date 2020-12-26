@@ -14,13 +14,26 @@ services:
 
   db:
     image: postgres
-    container_name: postgres
+    container_name: postgres1
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: pass
-      POSTGRES_DB: db
+      POSTGRES_USER: user1
+      POSTGRES_PASSWORD: pass1
+      POSTGRES_DB: db1
     restart: unless-stopped
     volumes:
-      - ./postgres-data:/var/lib/postgresql/data
+      - ./postgres-data1:/var/lib/postgresql/data1
     ports:
       - "5432:5432"
+
+  db2:
+    image: postgres
+    container_name: postgres2
+    environment:
+      POSTGRES_USER: user2
+      POSTGRES_PASSWORD: pass2
+      POSTGRES_DB: db2
+    restart: unless-stopped
+    volumes:
+      - ./postgres-data2:/var/lib/postgresql/data2
+    ports:
+      - "5333:5432"
