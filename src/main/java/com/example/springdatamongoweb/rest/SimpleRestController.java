@@ -27,6 +27,15 @@ public class SimpleRestController {
         List<User> usersResult = new ArrayList<>();
         usersResult.addAll((Collection<? extends User>) repository.findAll());
         usersResult.addAll((Collection<? extends User>) repository2.findAll());
+        repository.deleteAll();
+        repository2.deleteAll();
+
+        User user = new User(null,"Ваня");
+        User user2 = new User(null,"Ваня2");
+
+        repository.save(user);
+        repository2.save(user2);
+
         mongoUserRepository.findAll();
         return usersResult;
     }
