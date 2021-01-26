@@ -1,4 +1,4 @@
-server.port: 8888
+server.port: 8080
 
 
 database1.global.url: jdbc:postgresql://localhost:5432/db1
@@ -59,11 +59,19 @@ management:
           include: readinessState,db,mongo
         liveness:
           include: livenessState
+    shutdown:
+      enabled: true
+    metric:
+      enabled: true
+    startup:
+      enabled: true
     prometheus:
+      enabled: true
+    metrics:
       enabled: true
   endpoints:
     enabled-by-default: false
     web:
       exposure:
-        include: prometheus, health
+        include: prometheus, health ,shutdown, startup
   health.mail.enabled: false
